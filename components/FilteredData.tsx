@@ -1,10 +1,7 @@
 // @ts-nocheck
 
-import { Slider } from "@mui/material";
-import Box from "@mui/material/Box";
-import { useState, useReducer, SetStateAction } from "react";
+import { useReducer, useState } from "react";
 import { cardData } from "../helpers/data";
-import Card from "./UI/Card";
 
 const filtersReducer = (state, action) => {
   const { type, payload } = action;
@@ -236,14 +233,7 @@ return (
               <img src={image} width="100%" height="auto" />
               <h3> {name} </h3>
               <div>${price}</div>
-              {inStock && <div> In Stock </div>}
-              {!inStock && <div> Out of Stock </div>}
-              <div>{level}</div>
-              {fastDelivery ? (
-                <div> Fast Delivery </div>
-              ) : (
-                <div> 3 days minimum </div>
-              )}
+              
             </div>
           )
         )}

@@ -220,9 +220,7 @@ return (
             name,
             image,
             price,
-            productName,
             inStock,
-            level,
             fastDelivery
           }) => (
             <div

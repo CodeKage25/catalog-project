@@ -30,3 +30,19 @@ const Card = (props: any) => {
 };
 
 export default Card;
+/*
+<Box width={200} marginTop={10} marginLeft={2}>
+            <Slider
+              size="small"
+              min={350}
+              max={1000}
+              defaultValue={350}
+              aria-label="Small"
+              value={showPriceRange}
+              valueLabelDisplay="auto"
+              step={25}
+              onChange={(e) => priceChanger(e)}
+            />
+          </Box>
+
+ */         

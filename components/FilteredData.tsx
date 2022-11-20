@@ -236,14 +236,7 @@ return (
               <img src={image} width="100%" height="auto" />
               <h3> {name} </h3>
               <div>${price}</div>
-              {inStock && <div> In Stock </div>}
-              {!inStock && <div> Out of Stock </div>}
-              <div>{level}</div>
-              {fastDelivery ? (
-                <div> Fast Delivery </div>
-              ) : (
-                <div> 3 days minimum </div>
-              )}
+              
             </div>
           )
         )}

@@ -70,7 +70,7 @@ export default function FilteredData() {
 // matchSorter()
 return (
     <>
-      <fieldset>
+      {/* <fieldset>
         <legend>Sort BY</legend>
         <label htmlFor="HIGH_TO_LOW">
           <input
@@ -154,7 +154,7 @@ return (
             </div>
           )
         )}
-      </div>
+      </div> */}
     </>
   );
 }

@@ -65,12 +65,10 @@ export default function FilteredData() {
   const filteredData = getFilteredData(sortedData, showInventory, showFastDelivery);
 
   const priceFilteredData = filteredData.filter(({ price }) => price >= showPriceRange);
-
-  // const [finalData, setFinalData] = useState(priceFilteredData)
-// matchSorter()
+  
 return (
     <>
-      {/* <fieldset>
+      <fieldset>
         <legend>Sort BY</legend>
         <label htmlFor="HIGH_TO_LOW">
           <input
@@ -147,6 +145,7 @@ return (
                 padding: "0 0 1rem"
               }}
             >
+              {/* @ts-ignore */}
               <img width={"100%"} src={image}  alt=""/>
               <h3> {name} </h3>
               <div>${price}</div>
@@ -154,7 +153,7 @@ return (
             </div>
           )
         )}
-      </div> */}
+      </div>
     </>
   );
 }

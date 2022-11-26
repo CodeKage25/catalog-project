@@ -31,9 +31,9 @@ function filterReducer(state, action) {
 }
 
 const initialState = {
-    showBedroom: 2,
-    showBathroom: 2,
-    showStory: "any",
+    bedroom: 2,
+    bathroom: 2,
+    story: "any",
 }
 
 const FilterSection: any = () => {
@@ -41,6 +41,12 @@ const FilterSection: any = () => {
     const [state, dispatch] = useReducer(filterReducer, initialState);
     const { bedroom, bathroom, story } = state;
     function handleChange() {
+        if (dispatch({ type: 'bedroom' })) return bedroom;
+        else if (dispatch({ type: 'bathroom' })) return bathroom;
+        else if (dispatch({ type: 'story' })) return story;
+        else {
+            return;
+        }
         
     }
 

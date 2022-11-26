@@ -48,7 +48,7 @@ display: flex;
 }
 
 .slider {
-    
+    cursor: pointer;
     
 }
 
@@ -62,5 +62,6 @@ display: flex;
 
 .detail {
     letter-spacing: 0.004em;
+
 }
 `

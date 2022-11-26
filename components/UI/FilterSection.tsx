@@ -1,11 +1,47 @@
+// @ts-nocheck
 import { FilterSectionStyled } from "../../styles/FilterSectionStyle/FilterSection"
-import { useState } from "react";
+import React, { useState, useReducer } from "react";
+
+function filterReducer(state, action) {
+    switch (action.type) {
+        case 'bedroom': {
+            return {
+                ...state,
+                showBedroom: state.showBedroom + 1,
+            }
+        };
+    
+
+        case 'bathroom': {
+            return {
+                ...state,
+                showBedroom: state.showBedroom + 1,
+            };
+        }
+            
+        case 'story': {
+            return {
+                ...state,
+                showStory: state.showStory + 1,
+            }
+        }
+        default:
+            return state;
+    }
+}
+
+const initialState = {
+    showBedroom: 2,
+    showBathroom: 2,
+    showStory: "any",
+}
 
 const FilterSection: any = () => {
-    const [filtredImage, setFiltredImage] = useState(null);
-  
+    // const [filtredImage, setFiltredImage] = useState(null);
+    const [state, dispatch] = useReducer(filterReducer, initialState);
+    const { bedroom, bathroom, story } = state;
     function handleChange() {
-
+        
     }
 
   

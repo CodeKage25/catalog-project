@@ -12,7 +12,7 @@ export default function Sort () {
     const result = sorter(350)
     // @ts-ignore
     // setData(result)
-    setData(fuzzySearchMultipleWords(cardData, ['price', "bedroom"], "375 3"))
+    setData(fuzzySearchMultipleWords(cardData, ['price', "bedroom"], "500 4"))
   }, [])
   console.log(data)
 
@@ -42,8 +42,10 @@ export default function Sort () {
           <div key={id}>
             {data.price}, {data.bedroom}
             <img src={data.image} alt={data.name} width="100%" />
+            {/* <button onClick={fuzzySearchMultipleWords} /> */}
           </div>
         ))
+        
       }
     </>
   )

@@ -46,4 +46,21 @@ display: flex;
     color: black;
     text-align: center;
 }
+
+.slider {
+    
+    
+}
+
+.val {
+    width: 47px !important;
+    margin-top: 0 !important;
+    margin-left: 0px !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.detail {
+    letter-spacing: 0.004em;
+}
 `

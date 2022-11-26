@@ -6,7 +6,7 @@ export default function Sort () {
   function sorter(filterParam:any) {
     return matchSorter(cardData, filterParam, {keys: ['price']})
   }
-  const [data, setData] = useState()
+  const [data, setData] = useState(cardData)
 
   useEffect(() => {
     const result = sorter(350)

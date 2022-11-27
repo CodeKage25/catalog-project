@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { matchSorter } from "match-sorter";
-import { useReducer, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { cardData } from "../../helpers/data";
 import { FilterSectionStyled } from "../../styles/FilterSectionStyle/FilterSection";
 
@@ -39,9 +39,11 @@ const initialState = {
 const FilterSection: any = () => {
   const [state, dispatch] = useReducer(filterReducer, initialState);
   const [data, setData] = useState(cardData)
+  const { bedroom, bathroom, story } = state;
   const [priceRange, setPriceRange] = useState(350);
-
-    const { bedroom, bathroom, story } = state;
+  useEffect(() => {
+    setData(fuzzySearchMultipleWords(cardData, ["price", "bedroom", "story"], `${priceRange} ${bedroom} ${story}`))
+  }, [priceRange, bedroom, story, ])
     console.log(data, priceRange)
     function handleChange(type:string, payload: number) {
       if (type === "bedroom") {
@@ -135,7 +137,16 @@ const FilterSection: any = () => {
                 <div onClick={() => handleChange("bedroom", 2)}><button><p>1</p></button></div>
                 </div>
         </div>
+        {
+        // @ts-ignore
+        data?.map((data, id) => (
+          <div key={id}>
+            {data.price}, {data.bedroom}
+            <img src={data.image} alt={data.name} width="100%" />
+          </div>
+        ))
         
+      }
     </FilterSectionStyled>
     )
 }

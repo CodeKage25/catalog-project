@@ -59,9 +59,7 @@ const FilterSection: any = () => {
                 <div><button><p>2</p></button></div>
                 </div>
         </div>
-           
         
-       
     </FilterSectionStyled>
     )
 }

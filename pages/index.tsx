@@ -5,9 +5,9 @@ import FilterSection from "../components/UI/FilterSection";
 const Home: NextPage = () => {
   return (
     <>
-      <FilteredData />
+      {/* <FilteredData /> */}
       {/* <Sort /> */}
-      {/* <FilterSection /> */}
+      <FilterSection />
     </>
   )
 }

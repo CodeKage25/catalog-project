@@ -3,11 +3,12 @@ import { FilterSectionStyled } from "../../styles/FilterSectionStyle/FilterSecti
 import React, { useState, useReducer } from "react";
 
 function filterReducer(state, action) {
-    switch (action.type) {
+    const { type, payload } = action; 
+    switch (type) {
         case 'bedroom': {
             return {
                 ...state,
-                showBedroom: state.showBedroom + 1,
+                showBedroom: payload,
             }
         };
     
@@ -15,14 +16,14 @@ function filterReducer(state, action) {
         case 'bathroom': {
             return {
                 ...state,
-                showBedroom: state.showBedroom + 1,
+                showBathroom: payload,
             };
         }
             
         case 'story': {
             return {
                 ...state,
-                showStory: state.showStory + 1,
+                showStory: payload,
             }
         }
         default:
@@ -40,15 +41,17 @@ const FilterSection: any = () => {
     // const [filtredImage, setFiltredImage] = useState(null);
     const [state, dispatch] = useReducer(filterReducer, initialState);
     const { bedroom, bathroom, story } = state;
-    function handleChange() {
-        if (dispatch({ type: 'bedroom' })) return bedroom;
-        else if (dispatch({ type: 'bathroom' })) return bathroom;
-        else if (dispatch({ type: 'story' })) return story;
+    const handleChange = (type, payload) => {
+        if (dispatch( type === type )) return bedroom;
+        else if (dispatch(type === type)) return bathroom;
+        else if (dispatch(type === type)) return story;
         else {
             return;
         }
         
+        
     }
+    
 
   
     return (
@@ -70,7 +73,7 @@ const FilterSection: any = () => {
             <div className="filter__container">
                 <div className="content">Bedrooms</div>
                 <div className="filter__buttons">
-                <div onClick={handleChange}><button><p>2</p></button></div>
+                    <div onClick={handleChange}><button><p>2</p></button></div>
                 <div onClick={handleChange}><button><p>3</p></button></div>
                 <div onClick={handleChange}><button><p>4</p></button></div>
                 <div onClick={handleChange}><button><p>5+</p></button></div>
@@ -87,7 +90,7 @@ const FilterSection: any = () => {
             <div className="filter__container">
                 <div className="content">Bedrooms</div>
                 <div className="filter__buttons">
-                <div onClick={handleChange}><button onClick={handleChange}><p>1</p></button></div>
+                <div onClick={handleChange}><button><p>1</p></button></div>
                 <div onClick={handleChange}><button><p>1</p></button></div>
                 <div onClick={handleChange}><button ><p>1</p></button></div>
                 <div onClick={handleChange}><button><p>1</p></button></div>
@@ -96,9 +99,9 @@ const FilterSection: any = () => {
             <div className="filter__container">
                 <div className="content">Story</div>
                 <div className="filter__buttons">
-                <div><button><p>any</p></button></div>
-                <div><button><p>1</p></button></div>
-                <div><button><p>2</p></button></div>
+                <div onClick={handleChange}><button><p>any</p></button></div>
+                <div onClick={handleChange}><button><p>1</p></button></div>
+                <div onClick={handleChange}><button><p>2</p></button></div>
                 </div>
         </div>
            

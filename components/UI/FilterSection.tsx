@@ -33,7 +33,7 @@ function filterReducer(state, action) {
 const initialState = {
     bedroom: 2,
     bathroom: 2,
-    story: "any",
+    story: 2,
 }
 
 const FilterSection: any = () => {
@@ -43,7 +43,9 @@ const FilterSection: any = () => {
     function handleChange(type:string, payload: number) {
       if (type === "bedroom") {
         dispatch({ type: type, payload: payload });
-        setData(fuzzySearchMultipleWords(cardData, ["price", "bedroom", "story"], ``))
+        console.log(priceRange, bedroom, story)
+        setData(fuzzySearchMultipleWords(cardData, ["price", "bedroom", "story"], `${priceRange} ${bedroom} ${story}`));
+        console.log(data)
       }
       else if (type === "bathroom") {
         dispatch({ type: type, payload: payload })
@@ -71,6 +73,8 @@ const FilterSection: any = () => {
     rows,
   )
   }
+    const [priceRange, setPriceRange] = useState(350);
+    const priceChanger = (event) => setPriceRange(event.target.value);
   
     return (
         <FilterSectionStyled>
@@ -82,8 +86,10 @@ const FilterSection: any = () => {
           <input className="slider"
             type="range"
             id="priceRange"
-            min="0"
-            max="1000"
+            min="350"
+                    max="1000"
+                    value={priceRange}
+                    onChange={(e) => priceChanger(e)}
             
                 />
                 <div className="val">

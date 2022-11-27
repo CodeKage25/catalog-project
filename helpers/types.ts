@@ -5,5 +5,5 @@ export interface cardType {
     bedroom: any;
     bathroom: any;
     price: any;
-
+  PBL?: any
 }

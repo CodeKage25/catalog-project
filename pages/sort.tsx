@@ -3,16 +3,10 @@ import { useEffect, useState } from "react";
 import { cardData } from "../helpers/data";
 
 export default function Sort () {
-  function sorter(filterParam:any) {
-    return matchSorter(cardData, filterParam, {keys: ['price']})
-  }
-  const [data, setData] = useState()
+  const [data, setData] = useState(cardData)
 
   useEffect(() => {
-    const result = sorter(350)
-    // @ts-ignore
-    // setData(result)
-    setData(fuzzySearchMultipleWords(cardData, ['price', "bedroom"], "500 4"))
+    setData(fuzzySearchMultipleWords(cardData, ["price", "bedroom", "story", "PBL", "GSP"], "500 6 3 1"))
   }, [])
   console.log(data)
 
@@ -33,7 +27,8 @@ export default function Sort () {
     (results, term) => matchSorter(results, term, {keys}),
     rows,
   )
-}
+  }
+  
   return (
     <>
       {
@@ -42,7 +37,6 @@ export default function Sort () {
           <div key={id}>
             {data.price}, {data.bedroom}
             <img src={data.image} alt={data.name} width="100%" />
-            {/* <button onClick={fuzzySearchMultipleWords} /> */}
           </div>
         ))
         

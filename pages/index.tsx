@@ -1,7 +1,5 @@
-import FilteredData from "../components/FilteredData"
-import Card from "../components/UI/Card";
 import type { NextPage } from "next";
-import Sort from "./sort";
+import FilteredData from "../components/FilteredData";
 import FilterSection from "../components/UI/FilterSection";
 
 const Home: NextPage = () => {

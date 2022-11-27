@@ -1,6 +1,6 @@
 // @ts-nocheck
-import { FilterSectionStyled } from "../../styles/FilterSectionStyle/FilterSection"
-import React, { useState, useReducer } from "react";
+import { useReducer } from "react";
+import { FilterSectionStyled } from "../../styles/FilterSectionStyle/FilterSection";
 
 function filterReducer(state, action) {
     switch (action.type) {
@@ -40,10 +40,10 @@ const FilterSection: any = () => {
     // const [filtredImage, setFiltredImage] = useState(null);
     const [state, dispatch] = useReducer(filterReducer, initialState);
     const { bedroom, bathroom, story } = state;
-    function handleChange() {
-        if (dispatch({ type: 'bedroom' })) return bedroom;
-        else if (dispatch({ type: 'bathroom' })) return bathroom;
-        else if (dispatch({ type: 'story' })) return story;
+    function handleChange(dispatchType) {
+      if (dispatch({ type: { dispatchType } })) return bedroom;
+      else if (dispatch({ type: { dispatchType } })) return bathroom;
+      else if (dispatch({ type: { dispatchType } })) return story;
         else {
             return;
         }
@@ -70,10 +70,10 @@ const FilterSection: any = () => {
             <div className="filter__container">
                 <div className="content">Bedrooms</div>
                 <div className="filter__buttons">
-                <div onClick={handleChange}><button><p>2</p></button></div>
-                <div onClick={handleChange}><button><p>3</p></button></div>
-                <div onClick={handleChange}><button><p>4</p></button></div>
-                <div onClick={handleChange}><button><p>5+</p></button></div>
+                <div onClick={handleChange("bedroom")}><button><p>2</p></button></div>
+                <div onClick={handleChange("bedroom")}><button><p>3</p></button></div>
+                <div onClick={handleChange("bedroom")}><button><p>4</p></button></div>
+                <div onClick={handleChange("bedroom")}><button><p>5+</p></button></div>
                 </div>
         </div>
             <div className="filter__container">

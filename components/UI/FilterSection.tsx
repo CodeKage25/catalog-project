@@ -32,26 +32,30 @@ function filterReducer(state, action) {
 
 const initialState = {
     bedroom: 2,
-    bathroom: 2,
+    bathroom: 0,
     story: 2,
 }
 
 const FilterSection: any = () => {
   const [state, dispatch] = useReducer(filterReducer, initialState);
   const [data, setData] = useState(cardData)
+  const [priceRange, setPriceRange] = useState(350);
+
     const { bedroom, bathroom, story } = state;
+    console.log(data, priceRange)
     function handleChange(type:string, payload: number) {
       if (type === "bedroom") {
         dispatch({ type: type, payload: payload });
         console.log(priceRange, bedroom, story)
         setData(fuzzySearchMultipleWords(cardData, ["price", "bedroom", "story"], `${priceRange} ${bedroom} ${story}`));
-        console.log(data)
       }
       else if (type === "bathroom") {
         dispatch({ type: type, payload: payload })
+        setData(fuzzySearchMultipleWords(cardData, ["price", "bedroom", "story"], `${priceRange} ${bedroom} ${story}`));
       }
       else if (type === "story") { 
         dispatch({ type: type, payload: payload })
+        setData(fuzzySearchMultipleWords(cardData, ["price", "bedroom", "story"], `${priceRange} ${bedroom} ${story}`));
       }
     }
     
@@ -73,7 +77,6 @@ const FilterSection: any = () => {
     rows,
   )
   }
-    const [priceRange, setPriceRange] = useState(350);
     const priceChanger = (event) => setPriceRange(event.target.value);
   
     return (
@@ -89,8 +92,9 @@ const FilterSection: any = () => {
             min="350"
                     max="1000"
                     value={priceRange}
-                    onChange={(e) => priceChanger(e)}
             
+                    
+                    onChange={(e) => priceChanger(e)}
                 />
                 <div className="val">
                     {/* val */}

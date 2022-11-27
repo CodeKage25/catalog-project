@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { matchSorter } from "match-sorter";
-import { useReducer } from "react";
-import { cardData } from "../helpers/data";
+import { useReducer, useState } from "react";
+import { cardData } from "../../helpers/data";
 import { FilterSectionStyled } from "../../styles/FilterSectionStyle/FilterSection";
 
 function filterReducer(state, action) {
@@ -37,11 +37,13 @@ const initialState = {
 }
 
 const FilterSection: any = () => {
-    const [state, dispatch] = useReducer(filterReducer, initialState);
+  const [state, dispatch] = useReducer(filterReducer, initialState);
+  const [data, setData] = useState(cardData)
     const { bedroom, bathroom, story } = state;
     function handleChange(type:string, payload: number) {
       if (type === "bedroom") {
-        dispatch({ type: type, payload: payload })
+        dispatch({ type: type, payload: payload });
+        setData(fuzzySearchMultipleWords(cardData, ["price", "bedroom", "story"], ``))
       }
       else if (type === "bathroom") {
         dispatch({ type: type, payload: payload })

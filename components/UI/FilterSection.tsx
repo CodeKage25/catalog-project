@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { matchSorter } from "match-sorter";
-import { useReducer } from "react";
+import { useState, useReducer } from "react";
 import { cardData } from "../helpers/data";
 import { FilterSectionStyled } from "../../styles/FilterSectionStyle/FilterSection";
 
@@ -37,6 +37,7 @@ const initialState = {
 }
 
 const FilterSection: any = () => {
+    
     const [state, dispatch] = useReducer(filterReducer, initialState);
     const { bedroom, bathroom, story } = state;
     function handleChange(type:string, payload: number) {
@@ -69,6 +70,8 @@ const FilterSection: any = () => {
     rows,
   )
   }
+    const [showPriceRange, setShowPriceRange] = useState(350);
+    const priceChanger = (event) => setShowPriceRange(event.target.value);
   
     return (
         <FilterSectionStyled>
@@ -80,8 +83,10 @@ const FilterSection: any = () => {
           <input className="slider"
             type="range"
             id="priceRange"
-            min="0"
-            max="1000"
+            min="350"
+                    max="1000"
+                    value={showPriceRange}
+                    onChange={(e) => priceChanger(e)}
             
                 />
                 <div className="val">

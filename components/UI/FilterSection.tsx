@@ -31,20 +31,25 @@ function filterReducer(state, action) {
     }
 }
 
-const initialState = {
-    bedroom: 2,
-    bathroom: 2,
-    story: "any",
-}
+// const initialState = {
+//     bedroom: 2,
+//     bathroom: 2,
+//     story: "any",
+// }
 
 const FilterSection: any = () => {
     // const [filtredImage, setFiltredImage] = useState(null);
-    const [state, dispatch] = useReducer(filterReducer, initialState);
-    const { bedroom, bathroom, story } = state;
+    // const [state, dispatch] = useReducer(filterReducer, initialState);
+    const [{ showBedroom, showBathroom, showStory }, dispatch] = useReducer(filterReducer, {
+        showBedroom: 2,
+        showBathroom: 2,
+        showStory: "any",
+    });
+    // const { bedroom, bathroom, story } = state;
     const handleChange = (type, payload) => {
-        if (dispatch( type === type )) return bedroom;
-        else if (dispatch(type === type)) return bathroom;
-        else if (dispatch(type === type)) return story;
+        if (dispatch( type === type )) return showBedroom;
+        else if (dispatch(type === type)) return showBathroom;
+        else if (dispatch(type === type)) return showStory;
         else {
             return;
         }

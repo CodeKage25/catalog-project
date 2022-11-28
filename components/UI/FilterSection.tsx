@@ -92,6 +92,7 @@ const FilterSection: any = () => {
             type="range"
             id="priceRange"
             min="350"
+            step="25"
                     max="1000"
                     value={priceRange}
             
@@ -99,7 +100,7 @@ const FilterSection: any = () => {
                     onChange={(e) => priceChanger(e)}
                 />
                 <div className="val">
-                    {/* val */}
+                    {/* val */priceRange}
                 </div>
                 
                 </div>

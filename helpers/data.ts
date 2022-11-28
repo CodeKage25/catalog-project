@@ -111,7 +111,7 @@ export const cardData: cardType[] = [
         name: "",
         story: "",
         bedroom: 5,
-        bathroom: "",
+        bathroom: 2,
         price: 1000,
     },
     {
@@ -119,7 +119,7 @@ export const cardData: cardType[] = [
         name: "",
         story: "",
         bedroom: 5,
-        bathroom: "",
+        bathroom: 2,
         price: 1000,
     },
 ]

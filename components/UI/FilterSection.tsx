@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { matchSorter } from "match-sorter";
-import { useState, useReducer } from "react";
-import { cardData } from "../helpers/data";
+import { useEffect, useReducer, useState } from "react";
+import { cardData } from "../../helpers/data";
 import { FilterSectionStyled } from "../../styles/FilterSectionStyle/FilterSection";
 
 function filterReducer(state, action) {
@@ -32,23 +32,32 @@ function filterReducer(state, action) {
 
 const initialState = {
     bedroom: 2,
-    bathroom: 2,
-    story: "any",
+    bathroom: 0,
+    story: 2,
 }
 
 const FilterSection: any = () => {
-    
-    const [state, dispatch] = useReducer(filterReducer, initialState);
-    const { bedroom, bathroom, story } = state;
+  const [state, dispatch] = useReducer(filterReducer, initialState);
+  const [data, setData] = useState(cardData)
+  const { bedroom, bathroom, story } = state;
+  const [priceRange, setPriceRange] = useState(350);
+  useEffect(() => {
+    setData(fuzzySearchMultipleWords(cardData, ["price", "bedroom", "story"], `${priceRange} ${bedroom} ${story}`))
+  }, [priceRange, bedroom, story, ])
+    console.log(data, priceRange)
     function handleChange(type:string, payload: number) {
       if (type === "bedroom") {
-        dispatch({ type: type, payload: payload })
+        dispatch({ type: type, payload: payload });
+        console.log(priceRange, bedroom, story)
+        setData(fuzzySearchMultipleWords(cardData, ["price", "bedroom", "story"], `${priceRange} ${bedroom} ${story}`));
       }
       else if (type === "bathroom") {
         dispatch({ type: type, payload: payload })
+        setData(fuzzySearchMultipleWords(cardData, ["price", "bedroom", "story"], `${priceRange} ${bedroom} ${story}`));
       }
       else if (type === "story") { 
         dispatch({ type: type, payload: payload })
+        setData(fuzzySearchMultipleWords(cardData, ["price", "bedroom", "story"], `${priceRange} ${bedroom} ${story}`));
       }
     }
     
@@ -70,8 +79,7 @@ const FilterSection: any = () => {
     rows,
   )
   }
-    const [showPriceRange, setShowPriceRange] = useState(350);
-    const priceChanger = (event) => setShowPriceRange(event.target.value);
+    const priceChanger = (event) => setPriceRange(event.target.value);
   
     return (
         <FilterSectionStyled>
@@ -84,13 +92,15 @@ const FilterSection: any = () => {
             type="range"
             id="priceRange"
             min="350"
+            step="25"
                     max="1000"
-                    value={showPriceRange}
-                    onChange={(e) => priceChanger(e)}
+                    value={priceRange}
             
+                    
+                    onChange={(e) => priceChanger(e)}
                 />
                 <div className="val">
-                    {/* val */}
+                    {/* val */priceRange}
                 </div>
                 
                 </div>
@@ -128,7 +138,16 @@ const FilterSection: any = () => {
                 <div onClick={() => handleChange("bedroom", 2)}><button><p>1</p></button></div>
                 </div>
         </div>
+        {
+        // @ts-ignore
+        data?.map((data, id) => (
+          <div key={id}>
+            {data.price}, {data.bedroom}
+            <img src={data.image} alt={data.name} width="100%" />
+          </div>
+        ))
         
+      }
     </FilterSectionStyled>
     )
 }

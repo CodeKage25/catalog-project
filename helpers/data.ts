@@ -4,8 +4,8 @@ export const cardData: cardType[] = [
     {
         image: "/images/ext_01.png",
         name: "",
-        story: "",
-        bedroom: 0,
+        story: 2,
+        bedroom: 2,
         bathroom: "",
         price: 350,
     },
@@ -13,7 +13,7 @@ export const cardData: cardType[] = [
         image: "/images/ext_02.jpeg",
         name: "",
         story: "",
-        bedroom: 1,
+        bedroom: 2,
         bathroom: "",
         price: 350,
     },
@@ -111,7 +111,7 @@ export const cardData: cardType[] = [
         name: "",
         story: "",
         bedroom: 5,
-        bathroom: "",
+        bathroom: 2,
         price: 1000,
     },
     {
@@ -119,7 +119,7 @@ export const cardData: cardType[] = [
         name: "",
         story: "",
         bedroom: 5,
-        bathroom: "",
+        bathroom: 2,
         price: 1000,
     },
 ]

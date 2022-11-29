@@ -5,7 +5,7 @@ import Image from "next/image";
 import { CardDataStyled } from "../../styles/CardStyle/CardDataStyle";
 import React from "react";
 
-const Card = (props: any) => {
+const Card = () => {
 //   const { image, name, story, bedroom, bathroom, price } = props;
 //   console.log(image, name, story, bedroom, bathroom, price);
 
@@ -26,6 +26,7 @@ const Card = (props: any) => {
         );
       })}
     </React.Fragment>
+    
   );
 };
 

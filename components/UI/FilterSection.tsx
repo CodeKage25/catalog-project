@@ -3,6 +3,8 @@ import { matchSorter } from "match-sorter";
 import { useEffect, useReducer, useState } from "react";
 import { cardData } from "../../helpers/data";
 import { FilterSectionStyled } from "../../styles/FilterSectionStyle/FilterSection";
+import Popup from "reactjs-popup";
+
 
 function filterReducer(state, action) {
     const { type, payload } = action; 
@@ -85,9 +87,9 @@ const FilterSection: any = () => {
         <FilterSectionStyled>
             <div className="content">
           <div className="detail">House Budget</div>
-          Bedroom : {bedroom}
+          {/* Bedroom : {bedroom}
           Bathroom: {bathroom}
-          Story: {story}
+          Story: {story} */}
           <input className="slider"
             type="range"
             id="priceRange"
@@ -144,10 +146,58 @@ const FilterSection: any = () => {
           <div key={id}>
             {data.price}, {data.bedroom}
             <img src={data.image} alt={data.name} width="100%" />
-          </div>
-        ))
+            
+            <Popup
+    trigger={<button className="button"> See more </button>}
+    modal
+    nested
+            >
+              {close => (
+      <div className="modal">
+        <button className="close" onClick={close}>
+          &times;
+        </button>
+        <div className="header"> Modal Title </div>
+        <div className="content">
+          {' '}
+          {
+        // @ts-ignore
+        // data?.map((data, id) => (
+        //   <div key={id}>
+        //     {data.price}, {data.bedroom}
+        //     <img src={data.image} alt={data.name} width="100%" />
+            
+            
+        //   </div>
+        // ))
+        <img src={data.image} alt={data.name} width="100%" />
+          
         
       }
+        </div>
+        <div className="actions">
+          <button
+            className="button"
+            onClick={() => {
+              console.log('modal closed ');
+              close();
+            }}
+          >
+            close modal
+          </button>
+        </div>
+      </div>
+    )}
+            </Popup>
+            
+          </div>
+        ))
+          
+        
+      }
+        
+      
+        
     </FilterSectionStyled>
     )
 }

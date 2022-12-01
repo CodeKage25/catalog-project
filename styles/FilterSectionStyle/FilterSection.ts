@@ -1,15 +1,17 @@
 import styled from "styled-components";
 
 export const FilterSectionStyled = styled.section`
-height: calc(100% - 120px);
-overflow: scroll;
 display: flex;
+    overflow: hidden;
+    height: 100%;
+    
+.sidebar {
+    display: flex;
     flex-direction: column;
     padding: 20px;
     row-gap: 20px;
     width: 352px;
-    
-
+}
 
 .filter__container {
     display: flex;
@@ -85,4 +87,22 @@ display: flex;
   [data-popup='tooltip'].popup-overlay {
     background: transparent;
   }
+`
+
+export const AllCards = styled.section`
+padding: 0 20px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+.card__container {
+    height: 100%;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 220px;
+}
 `

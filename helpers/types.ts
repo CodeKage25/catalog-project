@@ -1,4 +1,5 @@
 export interface cardType {
+  key: number;
     image: string;
     name: string;
     story: any;

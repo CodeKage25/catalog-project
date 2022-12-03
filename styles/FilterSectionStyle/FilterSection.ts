@@ -5,12 +5,15 @@ display: flex;
     overflow: hidden;
     height: 100%;
     
+    
 .sidebar {
     display: flex;
     flex-direction: column;
     padding: 20px;
     row-gap: 20px;
     width: 352px;
+    
+    
 }
 
 .filter__container {
@@ -53,6 +56,17 @@ display: flex;
     cursor: pointer;
     
 }
+.buttons:active {
+    color:green;
+}
+
+.buttons:focus {
+    color:green;
+}
+
+.buttons:target {
+    color: green
+}
 
 .val {
     width: 47px !important;
@@ -94,7 +108,12 @@ padding: 0 20px;
     height: 100%;
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    width: 70%;
+    
+    
+    
+    
 
 .card__container {
     height: 100%;
@@ -104,5 +123,92 @@ padding: 0 20px;
     width: 100%;
     padding-top: 15px;
     padding-bottom: 220px;
+}
+
+.cards {
+    padding: 0 20px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+`
+export const SideBar = styled.section`
+
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    row-gap: 20px;
+    width: 352px;
+    width: 40%;
+    
+
+
+.filter__container {
+    display: flex;
+    flex-direction: row;
+    padding-right: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    row-gap: 10px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter__buttons {
+    display: flex;
+    column-gap: 5px;
+
+}
+
+.filter__buttons  button {
+    height: 25px;
+    padding: 5px 11px;
+    border-radius: 8px;
+    cursor:pointer;
+    border-color: grey;
+    border-radius: 8px;
+  color:#fff;
+}
+
+.filter__buttons  button p {
+    color: black;
+    text-align: center;
+}
+
+.slider {
+    cursor: pointer;
+    
+}
+.buttons:active {
+    color:green;
+}
+
+.buttons:focus {
+    color:green;
+}
+
+.buttons:target {
+    color: green
+}
+
+.val {
+    width: 47px !important;
+    margin-top: 0 !important;
+    margin-left: 0px !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.detail {
+    letter-spacing: 0.004em;
+
 }
 `

@@ -97,7 +97,7 @@ const FilterSection: any = () => {
           value={priceRange}
           onChange={(e) => priceChanger(e)}
         />
-        <div className="val">{/* val */ priceRange}</div>
+        <div className="val">{/* val */ priceRange >= 1000 ? `${priceRange/1000}M` : `${priceRange}K` }</div>
       </div>
       <div className="filter__container">
         <div className="content">Bedrooms</div>

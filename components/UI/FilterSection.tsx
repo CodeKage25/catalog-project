@@ -5,6 +5,7 @@ import { cardData } from "../../helpers/data";
 import { FilterSectionStyled } from "../../styles/FilterSectionStyle/FilterSection";
 import Popup from "reactjs-popup";
 import { AllCards } from "../../styles/FilterSectionStyle/FilterSection";
+import { SideBar } from "../../styles/FilterSectionStyle/FilterSection";
 
 function filterReducer(state, action) {
   const { type, payload } = action;
@@ -80,7 +81,7 @@ const FilterSection: any = () => {
 
   return (
     <FilterSectionStyled>
-      <div className="sidebar">
+      <SideBar>
       <div className="content">
         <div className="detail">House Budget</div>
         {/* Bedroom : {bedroom}
@@ -96,28 +97,28 @@ const FilterSection: any = () => {
           value={priceRange}
           onChange={(e) => priceChanger(e)}
         />
-        <div className="val">{/* val */ priceRange}</div>
+        <div className="val">{/* val */ priceRange >= 1000 ? `${priceRange/1000}M` : `${priceRange}K` }</div>
       </div>
       <div className="filter__container">
         <div className="content">Bedrooms</div>
         <div className="filter__buttons">
-          <div onClick={() => handleChange("bedroom", 2)}>
+          <div className="buttons" onClick={() => handleChange("bedroom", 2)}>
             <button>
               <p>2</p>
             </button>
           </div>
-          <div onClick={() => handleChange("bedroom", 3)}>
+          <div className="buttons" onClick={() => handleChange("bedroom", 3)}>
             <button>
               <p>3</p>
             </button>
           </div>
-          <div onClick={() => handleChange("bedroom", 4)}>
+          <div className="buttons" onClick={() => handleChange("bedroom", 4)}>
             <button>
               <p>4</p>
             </button>
           </div>
           <div onClick={() => handleChange("bedroom", 5)}>
-            <button>
+            <button className="buttons">
               <p>5+</p>
             </button>
           </div>
@@ -188,15 +189,21 @@ const FilterSection: any = () => {
           </div>
         </div>
         </div>
-        </div>
+      </SideBar>
+      <AllCards>
       {
         // @ts-ignore
         data?.map((data, id) => {
           return (
-            <AllCards>
-          <div key={id}>
-            {data.price}, {data.bedroom}
-            <img src={data.image} alt={data.name} width="100%" />
+            <>
+              
+                   
+              <div
+                className="cards"
+                key={id}>
+                    ${data.price}, {data.bedroom} bedroom
+                    
+            <img src={data.image} alt={data.name} width="100%"  height="300px" /> 
             <Popup trigger={<button className="button"> See more </button>} modal nested>
               {(close) => (
                 <div className="modal">
@@ -235,10 +242,14 @@ const FilterSection: any = () => {
                 </div>
               )}
             </Popup>
-              </div>
-              </AllCards>
+                  </div>
+                  
+                  
+              
+              </>
+              
         )})
-      }
+      }</AllCards>
     </FilterSectionStyled>
   );
 };

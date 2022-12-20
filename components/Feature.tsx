@@ -110,9 +110,11 @@
 
 // export default Feature;
 // @ts-no-check
+// import { imageSlide } from "../helpers/data";
 import { imageSlide } from "../helpers/data";
 // import imageByIndex from "../helpers/imageByIndex";
-import styles from "../styles/components/FeatureStyle.module.css";
+// import styles from "../styles/components/FeatureStyle.module.css";
+import styles from "../styles/FeatureStyle.module.css"
 import { AiOutlineArrowRight } from "react-icons/ai";
 // import React from 'react';
 import React, { useCallback, useEffect, useRef, useState } from "react";
@@ -212,7 +214,7 @@ const Feature: React.FC<PropType> = (props) => {
     });
   }, [emblaApi, setLoadingMore, lastSlideIsInView, setScrollProgress]);
 
-  const scrollTo = useCallback((index) => emblaApi && emblaApi.scrollTo(index), [emblaApi]);
+  const scrollTo = useCallback((index: number) => emblaApi && emblaApi.scrollTo(index), [emblaApi]);
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
     setSelectedIndex(emblaApi.selectedScrollSnap());
@@ -264,7 +266,7 @@ const Feature: React.FC<PropType> = (props) => {
   }, [setProgresses]);
   
   useEffect(() => {
-    if (!emblaApi || slides.length === emblaApi.slideNodes().length - 1) return;
+    if (!emblaApi || slides?.length === emblaApi.slideNodes().length - 1) return;
     const engine = emblaApi.internalEngine();
     const boundsActive = engine.limit.reachedMax(engine.target.get());
     engine.scrollBounds.toggleActive(boundsActive);
@@ -272,14 +274,14 @@ const Feature: React.FC<PropType> = (props) => {
 
   useEffect(() => {
     if (!emblaApi || !hasMoreToLoad || pointerIsDown) return;
-    if (slides.length === emblaApi.slideNodes().length - 1) return;
+    if (slides?.length === emblaApi.slideNodes().length - 1) return;
     reloadEmbla();
     addScrollListener();
   }, [emblaApi, slides, pointerIsDown, hasMoreToLoad, reloadEmbla, addScrollListener]);
 
   useEffect(() => {
     if (!emblaApi || hasMoreToLoad) return;
-    if (slides.length === emblaApi.slideNodes().length) return;
+    if (slides?.length === emblaApi.slideNodes().length) return;
     if (pointerIsDown && !lastSlideIsInView()) return;
     reloadEmbla();
     emblaApi.off("pointerDown", setPointerDown);
@@ -433,7 +435,7 @@ const Feature: React.FC<PropType> = (props) => {
               </div>
               <div className={`${styles.embla__port}`} ref={emblaRef}>
                 <div className={`${styles.image__container}`}>
-                  {slides.map((index) => (
+                  {slides?.map((index) => (
                     <div key={index} className={`${styles.image__wrapper}`}>
                       {/* <div className="embla__slide__number">
                 <span>{index + 1}</span>

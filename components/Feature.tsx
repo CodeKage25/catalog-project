@@ -1,128 +1,15 @@
-/* eslint-disable react/jsx-no-comment-textnodes */
-/* eslint-disable @next/next/no-img-element */
-// @ts-no-check
-// import { imageSlide } from "../helpers/data";
-// import styles from "../styles/components/FeatureStyle.module.css"
-// import { AiOutlineArrowRight } from "react-icons/ai";
-// import React from 'react';
 
-// const delay = 7000;
-// const Feature = () => {
-//     const [index, setIndex] = React.useState(0);
-//     const timeoutRef:any = React.useRef(null);
-
-//     function resetTimeout() {
-//         if (timeoutRef.current) {
-//           clearTimeout(timeoutRef.current);
-//         }
-//       }
-
-//       React.useEffect(() => {
-//         resetTimeout();
-//         timeoutRef.current = setTimeout(
-//           () =>
-//             setIndex((prevIndex) =>
-//               prevIndex === imageSlide.length - 1 ? 0 : prevIndex + 1
-//             ),
-//           delay
-//         );
-
-//         return () => {
-//           resetTimeout();
-//         };
-//       }, [index]);
-//   // const {key, heading, images } = props.imageSlide.map(data => data)
-//   return (
-//     <>
-//       <div className={`${styles.container}`}>
-//         <div className={`${styles.main} section_1`}>
-//           <div className={`${styles.main__section}`}>
-//             <div className={`${styles.grid__tab}`}>
-//               <div className={`${styles.content}`}>
-//                 <div className={`${styles.main__content} display`}>
-//                   <div className={`${styles.heading}`}>
-//                     <h2 className={`${styles.main__heading}`}>A better experience, for a better home</h2>
-//                     <div className={`${styles.main__para}`}>
-//                       <div className={`${styles.subheading__para}`}>
-//                         <div className={`${styles.subheading__body}`}>
-//                           Our technology powers a seamless experience from discovery & planning to post move-in living.
-//                         </div>
-//                       </div>
-//                     </div>
-//                   </div>
-
-//                   <div className={`${styles.menu__wrapper}`}>
-//                     <div className={`${styles.menu}`}>
-//                       {imageSlide.map((data, idx) => (
-//                         <div className={`${styles.relative}`} key={idx}>
-//                               <div
-//                               className={`${index === idx ? " active" : styles.menu__item}`}
-//                               onClick={() => {
-//                               setIndex(idx);
-//                             }}>
-//                             <div className={`${styles.menu__item_grid}`}>
-//                               <div className={`${styles.sidebar}`}>
-//                                 <div className={`${styles.numbering}`}>0{idx + 1}.</div>
-//                               </div>
-//                               <div className={`${styles.item}`}>
-//                                           <div className={`${styles.title}`}>{data.heading}</div>
-//                                           <div className={`${index === idx ? " active" : styles.heading__paragraph}`}>
-//                                               <div className={`${styles.paragrapgh__item}`}>
-//                                                   <div className={`${styles.paragraph}`}>
-//                                                   Powerful physical and virtual cards with unlimited 1.5% cashback
-//                                                   </div>
-//                                               </div>
-//                                           </div>
-//                               </div>
-//                               <div className={`${styles.logo}`}>
-//                                 <AiOutlineArrowRight className={`${styles.logo__item}`} />
-//                               </div>
-//                             </div>
-//                               </div>
-//                               <div className={`${index === idx ? styles.loader : styles.loader}`}
-//                               onClick={() => {
-//                               setIndex(idx);
-//                             }} />
-//                         </div>
-//                       ))}{" "}
-//                     </div>
-//                   </div>
-//                 </div>
-//               </div>
-//                           <div className={`${styles.image__container}`}
-//                               style={{ transform: `translate3d(0, ${-index * 27}%, 0)`, }}>
-//                           {imageSlide.map((data, id) => (
-//                               <div key={id} className={`${index === id ? " active" : styles.image__wrapper}`} >
-//                               {data.images ? <img className={`${styles.images}`} width="400" height="300" src={data.images} /> : <video className={`${styles.images}`} width="400" height="300" src={data.video} loop autoPlay={true} />}
-//                               </div>
-//         ))}
-//                               {/* <div className={`${styles.image__wrapper}`}>
-
-//                               </div> */}
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default Feature;
-// @ts-no-check
-// import { imageSlide } from "../helpers/data";
 import { imageSlide } from "../helpers/data";
 // import imageByIndex from "../helpers/imageByIndex";
 // import styles from "../styles/components/FeatureStyle.module.css";
-import styles from "../styles/FeatureStyle.module.css"
 import { AiOutlineArrowRight } from "react-icons/ai";
+import styles from "../styles/FeatureStyle.module.css";
 // import React from 'react';
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import useEmblaCarousel, { EmblaOptionsType } from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
-import EmblaCarousel from "embla-carousel";
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
+import Autoplay from "embla-carousel-autoplay";
+import useEmblaCarousel, { EmblaOptionsType } from "embla-carousel-react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
 // import Autoplay
 // import imageByIndex from './imageByIndex'
@@ -139,41 +26,6 @@ type PropType = {
   slides: number[];
   options?: EmblaOptionsType;
 };
-
-// export function LinearDeterminate() {
-//   const [progresses, setProgresses] = React.useState(0);
-
-//   React.useEffect(() => {
-//     const timer = setInterval(() => {
-//       setProgresses((oldProgress) => {
-//         if (oldProgress === 100) {
-//           return 0;
-//         }
-//         const diff = Math.random() * 10;
-//         return Math.min(oldProgress + diff, 100);
-//       });
-//     }, 5000);
-
-//     return () => {
-//       clearInterval(timer);
-//     };
-//   }, []);
-// }
-// export const progress = (props) => {
-//   const { selected, onClick } = props;
-
-//   return (
-//     <div
-//       className={"embla__dot".concat(selected ? " embla__dot--selected" : "")}
-//       // type="button"
-//       onClick={onClick}
-//     ></div>
-//   );
-// };
-// export default function LinearDeterminate() {
-//   const [progress, setProgress] = React.useState(0);
-
-// const delay = 7000;
 
 const Feature: React.FC<PropType> = (props) => {
   const { options, slides: propSlides } = props;
@@ -204,7 +56,7 @@ const Feature: React.FC<PropType> = (props) => {
 
   const onScroll = useCallback(() => {
     if (!emblaApi) return;
-    const progress = Math.max(0, Math.min(1, emblaApi.scrollProgress()));
+    const progress = emblaApi.scrollProgress();
     setScrollProgress(progress * 100);
     setLoadingMore((isLoadingMore) => {
       if (isLoadingMore) return true;
@@ -252,13 +104,13 @@ const Feature: React.FC<PropType> = (props) => {
     
     const timer = setInterval(() => {
       setProgresses((oldProgress) => {
-        if (oldProgress === 100) {
+        if (oldProgress === 100 && emblaApi?.scrollProgress() === 1) {
           return 0;
         }
         const diff = Math.random() * 10;
         return Math.min(oldProgress + diff, 100);
       });
-    }, 500);
+    }, 0);
 
     return () => {
       clearInterval(timer);
@@ -317,31 +169,6 @@ const Feature: React.FC<PropType> = (props) => {
       });
     });
   }, [setSlides, loadingMore]);
-  // const [index, setIndex] = React.useState(0);
-  // const timeoutRef:any = React.useRef(null);
-
-  // function resetTimeout() {
-  //     if (timeoutRef.current) {
-  //       clearTimeout(timeoutRef.current);
-  //     }
-  //   }
-
-  //   React.useEffect(() => {
-  //     resetTimeout();
-  //     timeoutRef.current = setTimeout(
-  //       () =>
-  //         setIndex((prevIndex) =>
-  //           prevIndex === imageSlide.length - 1 ? 0 : prevIndex + 1
-  //         ),
-  //       delay
-  //     );
-
-  //     return () => {
-  //       resetTimeout();
-  //     };
-  //   }, [index]);
-  // const {key, heading, images } = props.imageSlide.map(data => data)
-  // let value:any = idx === selectedIndex ? progresses : "";
   return (
     <>
       <div className={`${styles.container}`}>
@@ -369,11 +196,7 @@ const Feature: React.FC<PropType> = (props) => {
                             className={`${idx === selectedIndex ? " active" : styles.menu__item}`}
                             onClick={() => scrollTo(idx)}
                           >
-                            
-          
-            
-          
-        
+
                             <div  className={`${styles.menu__item_grid}`}>
                               <div className={`${styles.sidebar}`}>
                                 <div className={`${styles.numbering}`}>0{idx + 1}.</div>
@@ -398,7 +221,6 @@ const Feature: React.FC<PropType> = (props) => {
                                 <AiOutlineArrowRight className={`${styles.logo__item}`} />
                               </div>
                           </div>
-                         
                           </div>
                           {/* <div className={`${index === idx ? styles.loader : styles.loader}`}
                               onClick={() => {
@@ -406,20 +228,11 @@ const Feature: React.FC<PropType> = (props) => {
                             }} /> */}
                           <div>
                           <div className="">
-                            {/* <div
-                              key={idx}
-                              // selected={index === selectedIndex}
-                              className={`${idx === selectedIndex ? styles.loader : "load"}`}
-                                // className={`${styles.embla__progress__bar}`}
-                              style={{ transform: `translateX(${scrollProgress}%)` }}
-                              /> */}
-                              
                               <Box sx={{
                                 width: '100%',
                             height: "1%"  }}>
-                             
-                                <LinearProgress 
-                                 variant="determinate" value={idx === selectedIndex ? progresses : -selectedIndex} color="inherit" 
+                                <LinearProgress
+                                  variant="determinate" value={idx === selectedIndex ? progresses : 0} color="inherit" 
                                   // onChange={() => {
                                   //   setSelectedIndex(idx)
                                   // }}

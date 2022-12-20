@@ -4,6 +4,7 @@ export const FilterSectionStyled = styled.section`
 display: flex;
     overflow: hidden;
     height: 100%;
+    height: 100vh;
     
     
 .sidebar {
@@ -110,7 +111,8 @@ padding: 0 20px;
     display: flex;
     flex-direction: row;
     width: 70%;
-    
+    min-height: 100%;
+   
     
     
     
@@ -131,7 +133,12 @@ padding: 0 20px;
     width: 100%;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     
+}
+
+.images{
+    flex-wrap: wrap;
 }
 
 

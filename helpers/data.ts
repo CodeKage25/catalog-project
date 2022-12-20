@@ -14,7 +14,7 @@ export const cardData: cardType[] = [
         key: 2,
         image: "/images/ext_02.jpeg",
         name: "",
-        story: "",
+        story: 2,
         bedroom: 2,
         bathroom: "",
         price: 350,
@@ -23,7 +23,7 @@ export const cardData: cardType[] = [
         key: 3,
         image: "/images/ext_03.jpeg",
         name: "",
-        story: "",
+        story: 3,
         bedroom: 2,
         bathroom: "",
         price: 375,
@@ -138,3 +138,28 @@ export const cardData: cardType[] = [
         price: 1000,
     },
 ]
+
+export const imageSlide = [
+    {
+        key: 1,
+        heading: "Discover what to build",
+        images: "/images/slideImage1.png",
+
+    },
+    {
+        key: 2,
+        heading: "Visualize your home in 3D/VR/4K Renders",
+        video: "/images/slideVideo.mp4"
+    },
+    {
+        key: 3,
+        heading: "Track your home as it comes to life",
+        images: "/images/slideImage2.png"
+    },
+    {
+        key: 4,
+        heading: "Smart home living",
+        images: "/images/slideImage3.png"
+    },
+]
+

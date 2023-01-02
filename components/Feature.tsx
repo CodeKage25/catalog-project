@@ -110,7 +110,7 @@ const Feature: React.FC<PropType> = (props) => {
         const diff = Math.random() * 10;
         return Math.min(oldProgress + diff, 100);
       });
-    }, 0);
+    }, 500);
 
     return () => {
       clearInterval(timer);
@@ -232,7 +232,7 @@ const Feature: React.FC<PropType> = (props) => {
                                 width: '100%',
                             height: "1%"  }}>
                                 <LinearProgress
-                                  variant="determinate" value={idx === selectedIndex ? progresses : 0} color="inherit" 
+                                  variant="determinate" value={idx === selectedIndex ? progresses : -selectedIndex} color="inherit" 
                                   // onChange={() => {
                                   //   setSelectedIndex(idx)
                                   // }}

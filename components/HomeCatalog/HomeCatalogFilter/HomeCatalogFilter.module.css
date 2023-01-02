@@ -1,0 +1,30 @@
+.home_plan_filters {
+    box-sizing: border-box;
+    width: 352px;
+    overscroll-behavior-y: none;
+    height: 100%;
+    padding: 30px;
+    background-color: var(--background-color);
+    
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.home_plan_filters::-webkit-scrollbar {
+    display: none;
+}
+
+.filters_container {
+    gap: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+@media screen and (max-width: 768px) {
+    .home_plan_filters{
+        width: 100%;
+        padding: 10px;
+    }
+}

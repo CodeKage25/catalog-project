@@ -1,0 +1,14 @@
+.filter_text_input {
+    width: 100%;
+    border: none;
+    background-color: var(--contrast-color);
+    padding: 12px 8px;
+    font-size: 12px;
+    border-radius: 2px;
+    outline: none;;
+}
+
+.filter_text_label {
+    font-size: 12px;
+    color: var(--lighter-dark-text);
+}

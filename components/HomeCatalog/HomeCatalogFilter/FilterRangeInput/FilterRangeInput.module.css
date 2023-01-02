@@ -1,0 +1,50 @@
+
+.filter_input_label {
+    color: var(--lighter-dark-text);
+    font-size: 11px;
+}
+
+
+.filter_input_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.filt_range_input {
+ -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 5px; /* Specified height */
+  background: var(--contrast-color); /* Grey background */
+  outline: none; /* Remove outline */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+
+.filt_range_input:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+.filt_range_input::-webkit-slider-thumb {
+    border-radius: 40px;
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 15px; /* Set a specific slider handle width */
+  height: 15px; /* Slider handle height */
+  background: var(--primary-color);
+  cursor: pointer; /* Cursor on hover */
+}
+
+.filt_range_input::-moz-range-thumb {
+    border-radius: 40px;
+  width: 15px; /* Set a specific slider handle width */
+  height: 15px; /* Slider handle height */
+  background: var(--primary-color);
+  cursor: pointer; /* Cursor on hover */
+}

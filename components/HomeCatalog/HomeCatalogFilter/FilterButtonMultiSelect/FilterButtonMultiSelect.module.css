@@ -1,0 +1,36 @@
+
+.filter_input_label {
+    color: var(--lighter-dark-text);
+    font-size: 11px;
+}
+
+
+.filter_input_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.optBtn {
+    cursor: pointer;
+    border-radius: 12px;
+    outline: none;
+    border-color: transparent;
+    color: var(--background-color);
+    background-color: var(--primary-color);
+    font-size: 12px;
+    margin-left: 2px;
+}
+
+.optBtn.selected {
+    color: var(--primary-color);
+    background-color: var(--background-color);
+}
+
+.selected_optBtn {
+    background-color: var(--contrast-color);
+    color: var(--primary-color);
+}
